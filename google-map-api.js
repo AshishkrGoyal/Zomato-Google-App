@@ -11,7 +11,7 @@ $(function () {
         var latitute;
         var langitute;
         geocoder.geocode({'address': address}, function (results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
+            if (status == google.maps.GeocoderStatus.OK) {
 
                 latitute = results[0].geometry.location.lat();
                 langitute = results[0].geometry.location.lng();
@@ -19,17 +19,29 @@ $(function () {
             } else {
                 alert("Something got wrong " + status);
             }
+            $.ajax({
+                url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q&location="+latitute+","+langitute+"&type=restaurant&radius=5000",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
             //console.log("Ashish");
-            console.log("https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q&location="+latitute+","+langitute+"&type=restaurant&radius=5000")
-        });
 
-        $.ajax({
+        });
+        //console.log("https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q&location="+latitute+","+langitute+"&type=restaurant&radius=5000")
+     /*   $.ajax({
+            url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q&location="+latitute+","+langitute+"&type=restaurant&radius=5000",
+            success: function (result) {
+                console.log(JSON.stringify(result));
+            }
+        });*/
+        /*$.ajax({
             URL: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q&location="+latitute+","+langitute+"&type=restaurant&radius=5000",
             success: function (result) {
-                console.log(result);
+                /!*console.log(result);*!/
             }
 
-            /*var geocoder = new google.maps.Geocoder();
+            /!*var geocoder = new google.maps.Geocoder();
              geocoder.geocode( { 'address': address}, function(results, status) {
              if (status === google.maps.GeocoderStatus.OK)
              {
@@ -38,13 +50,7 @@ $(function () {
              // results[0].geometry.location.latitude
              // results[0].geometry.location.longitude
              }
-             });*/
-            /*$.ajax({
-             URL: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q",
-             success: function (result) {
-             console.log(result);
-             }
-             })*/
-        });
+             });*!/
+        });*/
     })
 });
