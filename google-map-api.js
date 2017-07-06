@@ -20,7 +20,7 @@ $(function () {
                 alert("Something got wrong " + status);
             }
             //console.log("Ashish");
-            //console.log("https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q&location="+latitute+","+langitute+"&type=restaurant&radius=5000")
+            console.log("https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB87GfWlmdlgIteQi7SAN0qgMH1EgINn9Q&location="+latitute+","+langitute+"&type=restaurant&radius=5000")
         });
 
         $.ajax({
