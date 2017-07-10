@@ -14,7 +14,7 @@ function my_func(callback) {
     var x;
     $.ajax({
         url: "https://developers.zomato.com/api/v2.1/categories",
-        headers: { 'user-key': 'b80ed65fbb8fe12985a444facccb14f8' },
+        headers: { 'user-key': '***************************' },
         success: function (result) {
             /*$('.output').html(JSON.stringify(result));*/
            /* x = result;
